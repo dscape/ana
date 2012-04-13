@@ -1,7 +1,7 @@
 {
   "name": "ana",
   "version": "0.0.1",
-  "subdomain": "ana",
+  "subdomain": "ana-dont-steal-subdomain",
   "scripts": {
     "start": "app.js"
   },
