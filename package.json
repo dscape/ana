@@ -1,4 +1,11 @@
-{ "name": "ana"
-, "version": "0.0.1"
-, "subdomain": "ana"
+{
+  "name": "ana",
+  "version": "0.0.1",
+  "subdomain": "ana",
+  "scripts": {
+    "start": "app.js"
+  },
+  "engines": {
+    "node": "0.6.x"
+  }
 }
