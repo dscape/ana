@@ -1,0 +1,505 @@
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ node
+> function foo(arg1, arg2, arg3) {
+...   console.log("foo");
+... }
+undefined
+> foo()
+foo
+undefined
+> foo(1)
+foo
+undefined
+> foo(1,2)
+foo
+undefined
+> foo(1,2,3,4,5)
+foo
+undefined
+> function foo(arg1, arg2, arg3) {
+...   
+...   console.log(arg1);
+... }
+undefined
+> 
+undefined
+> 
+undefined
+> foo(1,2,3,4,5)
+1
+undefined
+> function foo(arg1, arg2, arg3) {
+...   var something = arg1 + ' is awesome';
+...   console.log(something);
+... }
+undefined
+> 
+undefined
+> 
+undefined
+> foo(1,2,3,4,5)
+1 is awesome
+undefined
+> something
+ReferenceError: something is not defined
+    at repl:1:2
+    at REPLServer.eval (repl.js:80:21)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+    at Interface._ttyWrite (readline.js:603:14)
+    at ReadStream.<anonymous> (readline.js:82:12)
+    at ReadStream.emit (events.js:88:20)
+    at ReadStream._emitKey (tty.js:320:10)
+> function foo(arg1, arg2, arg3) {
+...   something = arg1 + ' is awesome';
+...   console.log(something);
+... }
+undefined
+> 
+undefined
+> foo(1,2,3,4,5)
+1 is awesome
+undefined
+> something
+'1 is awesome'
+> function foo(arg1, arg2, arg3) {
+...   var something = arg1 + ' is awesome';
+...   function bar() {
+.....     console.log(arguments);
+.....   }; // -> {0: "something"}
+...   console.log(bar(something));
+... }
+undefined
+> 
+undefined
+> foo(1)
+{ '0': '1 is awesome' }
+undefined
+undefined
+> function foo(arg1, arg2, arg3) {
+...   var something = arg1 + ' is awesome';
+...   var barres = bar(something,3);
+...   function bar() {
+.....     // this, 
+.....     console.log(arguments);
+.....   }; // -> {0: "something"}
+...   console.log(barres);
+... }
+undefined
+> 
+undefined
+> foo(1)
+{ '0': '1 is awesome', '1': 3 }
+undefined
+undefined
+> function foo() {
+...   var terriblename = bar(arguments);
+...   function bar() {
+.....     console.log("a", arguments);
+.....   }; // -> {0: "something"}
+...   console.log("b", terriblename);
+... }
+undefined
+> 
+undefined
+> foo(1,2)
+a { '0': { '0': 1, '1': 2 } }
+b undefined
+undefined
+> function foo() {
+...   var terriblename = bar.call(arguments);
+...   function bar() {
+.....     console.log("a", arguments);
+.....   }; // -> {0: "something"}
+...   console.log("b", terriblename);
+... }
+undefined
+> 
+undefined
+> foo(1,2)
+a {}
+b undefined
+undefined
+> function foo() {
+...   var terriblename = bar(arguments);
+...   function bar(argsFromFoo) {
+.....     return argsFromFoo;
+.....   }; // -> {0: "something"}
+...   console.log("b", terriblename);
+... }
+undefined
+> 
+undefined
+> foo(1,2)
+b { '0': 1, '1': 2 }
+undefined
+> function foo() {
+...   
+...   var a = 1
+...   var terriblename = bar(arguments);
+... 
+...   function bar(argsFromFoo) {
+... 
+...     var b = 2;
+...     console.log("a", a);
+...     return argsFromFoo;
+... 
+...   }; // -> {0: "something"}
+... 
+...   console.log("b", b);
+...   console.log("return ", terriblename);
+... 
+... }
+undefined
+> 
+undefined
+> foo(1,2)
+a 1
+ReferenceError: b is not defined
+    at foo (repl:14:18)
+    at repl:1:2
+    at REPLServer.eval (repl.js:80:21)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+    at Interface._ttyWrite (readline.js:603:14)
+    at ReadStream.<anonymous> (readline.js:82:12)
+    at ReadStream.emit (events.js:88:20)
+> 
+undefined
+> function foo() {
+...   
+...   var a = 1;
+...   var b = 3;
+...   var terriblename = bar(arguments);
+... 
+...   function bar(argsFromFoo) {
+... 
+...     var b = 2;
+...     console.log("a", a);
+...     console.log("b", b);
+...     return argsFromFoo;
+... 
+...   }; // -> {0: "something"}
+... 
+...   console.log("b", b);
+... 
+> 
+(^C again to quit)
+> function foo() {
+...   
+...   var a = 1;
+...   var b = 3;
+...   var terriblename = bar(arguments);
+... 
+...   function bar(argsFromFoo) {
+... 
+...     var b = 2;
+...     console.log("a", a);
+...     console.log("b", b);
+...     return argsFromFoo;
+... 
+...   }; // -> {0: "something"}
+... 
+...   console.log("b", b);
+... 
+> function foo() {
+...   
+...   var a = 1;
+...   var b = 3;
+...   var terriblename = bar(arguments);
+... 
+...   function bar(argsFromFoo) {
+... 
+...     var b = 2;
+...     console.log("a", a);
+...     console.log("b", b);
+...     return argsFromFoo;
+... 
+...   }; // -> {0: "something"}
+... 
+...   console.log("b", b);
+...   console.log("return ", terriblename);
+... 
+... }
+undefined
+> 
+undefined
+> foo(1,2);
+a 1
+b 2
+b 3
+return  { '0': 1, '1': 2 }
+undefined
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ clear
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ clear
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ ls
+README.md build     publish   topics
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ nano README.md 
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master*
+$ p
+dscape at air in ~/Desktop/dev 
+$ cd an
+ana/     android/ 
+dscape at air in ~/Desktop/dev 
+$ cd an
+ana/     android/ 
+dscape at air in ~/Desktop/dev 
+$ cd ana/
+dscape at air in ~/Desktop/dev/ana  on master*
+$ cler
+bash: cler: command not found
+dscape at air in ~/Desktop/dev/ana  on master*
+$ clear
+dscape at air in ~/Desktop/dev/ana  on master*
+$ cd l00
+l001/ l002/ 
+dscape at air in ~/Desktop/dev/ana  on master*
+$ cd l002/
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ dl3q4
+bash: dl3q4: command not found
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ clear
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll
+total 72
+drwxr-xr-x  6 dscape  staff    204 Apr 18 16:39 .
+drwxr-xr-x  5 dscape  staff    170 Apr 18 16:32 ..
+-rw-r--r--@ 1 dscape  staff    635 Apr 18 16:32 helper.js
+-rw-r--r--  1 dscape  staff      0 Apr 18 16:39 index.js
+-rw-r--r--@ 1 dscape  staff  26859 Apr 18 16:28 nodejs-fundamentals.graffle
+-rw-r--r--@ 1 dscape  staff    633 Apr 18 16:39 person.js
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ clear
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('person');
+Error: Cannot find module 'person'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at repl:1:1
+    at REPLServer.eval (repl.js:80:21)
+    at repl.js:190:20
+    at REPLServer.eval (repl.js:87:5)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+> require('person');
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll
+total 72
+drwxr-xr-x  6 dscape  staff    204 Apr 18 16:39 .
+drwxr-xr-x  5 dscape  staff    170 Apr 18 16:32 ..
+-rw-r--r--@ 1 dscape  staff    635 Apr 18 16:32 helper.js
+-rw-r--r--  1 dscape  staff      0 Apr 18 16:39 index.js
+-rw-r--r--@ 1 dscape  staff  26859 Apr 18 16:28 nodejs-fundamentals.graffle
+-rw-r--r--@ 1 dscape  staff    633 Apr 18 16:39 person.js
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('request')
+Error: Cannot find module 'request'
+    at Function._resolveFilename (module.js:334:11)
+    at Function._load (module.js:279:25)
+    at Module.require (module.js:357:17)
+    at require (module.js:368:17)
+    at repl:1:2
+    at REPLServer.eval (repl.js:80:21)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ npm install requesr
+npm http GET https://registry.npmjs.org/requesr
+^Cdscape at air in ~/Desktop/dev/ana/l002  on master*
+$ npm install request
+npm http GET https://registry.npmjs.org/request
+npm http 304 https://registry.npmjs.org/request
+request@2.9.202 ./node_modules/request
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('request')
+{ [Function: request]
+  defaults: [Function],
+  forever: [Function],
+  get: [Circular],
+  post: [Function],
+  put: [Function],
+  head: [Function],
+  del: [Function],
+  jar: [Function],
+  cookie: [Function] }
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll
+total 72
+drwxr-xr-x  7 dscape  staff    238 Apr 18 16:41 .
+drwxr-xr-x  5 dscape  staff    170 Apr 18 16:32 ..
+-rw-r--r--@ 1 dscape  staff    635 Apr 18 16:32 helper.js
+-rw-r--r--  1 dscape  staff      0 Apr 18 16:39 index.js
+drwxr-xr-x  3 dscape  staff    102 Apr 18 16:41 node_modules
+-rw-r--r--@ 1 dscape  staff  26859 Apr 18 16:28 nodejs-fundamentals.graffle
+-rw-r--r--@ 1 dscape  staff    633 Apr 18 16:39 person.js
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll no
+node_modules/                nodejs-fundamentals.graffle  
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll node_modules/request/
+LICENSE       README.md     forever.js    main.js       mimetypes.js  oauth.js      package.json  tests/        tunnel.js     uuid.js       vendor/
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll node_modules/request/
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ ll
+total 72
+drwxr-xr-x  7 dscape  staff    238 Apr 18 16:41 .
+drwxr-xr-x  5 dscape  staff    170 Apr 18 16:32 ..
+-rw-r--r--@ 1 dscape  staff    635 Apr 18 16:32 helper.js
+-rw-r--r--  1 dscape  staff      0 Apr 18 16:39 index.js
+drwxr-xr-x  3 dscape  staff    102 Apr 18 16:41 node_modules
+-rw-r--r--@ 1 dscape  staff  26859 Apr 18 16:28 nodejs-fundamentals.graffle
+-rw-r--r--@ 1 dscape  staff    633 Apr 18 16:39 person.js
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ clear
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('./person')
+{}
+> require('./person').new
+undefined
+> require('./person')()
+TypeError: object is not a function
+    at Object.CALL_NON_FUNCTION (native)
+    at repl:1:20
+    at REPLServer.eval (repl.js:80:21)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+    at Interface._ttyWrite (readline.js:603:14)
+    at ReadStream.<anonymous> (readline.js:82:12)
+    at ReadStream.emit (events.js:88:20)
+> require('./person')
+{}
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('./person')
+[Function: createPerson]
+> require('./person')()
+{ new: [Function] }
+> require('./person')().new
+[Function]
+> require('./person')().new()
+undefined
+> var p = require('./person')().new()
+undefined
+> p.run()
+TypeError: Cannot call method 'run' of undefined
+    at repl:1:4
+    at REPLServer.eval (repl.js:80:21)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+    at Interface._ttyWrite (readline.js:603:14)
+    at ReadStream.<anonymous> (readline.js:82:12)
+    at ReadStream.emit (events.js:88:20)
+    at ReadStream._emitKey (tty.js:320:10)
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('./person')
+[Function: createPerson]
+> require('./person')()
+{ sleep: [Function: sleep],
+  run: [Function: run] }
+> p = require('./person')()
+{ sleep: [Function: sleep],
+  run: [Function: run] }
+> var p = require('./person')()
+undefined
+> p
+{ sleep: [Function: sleep],
+  run: [Function: run] }
+> p.sleep
+[Function: sleep]
+> p.sleep()
+undefined
+> p.run()
+Running
+undefined
+> p.run()
+Running
+undefined
+> p.run()
+Cant run too tired
+undefined
+> p.sleep()
+undefined
+> p.run()
+Running
+undefined
+> p.run()
+Cant run too tired
+undefined
+> p
+{ sleep: [Function: sleep],
+  run: [Function: run] }
+> p.stamina
+undefined
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ cd p
+person/    person.js  
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ cd person
+dscape at air in ~/Desktop/dev/ana/l002/person  on master* node v0.6.7
+$ ll
+total 16
+drwxr-xr-x  4 dscape  staff  136 Apr 18 16:47 .
+drwxr-xr-x  8 dscape  staff  272 Apr 18 16:46 ..
+-rw-r--r--@ 1 dscape  staff   63 Apr 18 16:46 package.json
+-rw-r--r--@ 1 dscape  staff  539 Apr 18 16:47 person.js
+dscape at air in ~/Desktop/dev/ana/l002/person  on master* node v0.6.7
+$ 
+dscape at air in ~/Desktop/dev/ana/l002/person  on master* node v0.6.7
+$ npm publish
+npm http PUT https://registry.npmjs.org/person
+npm http 201 https://registry.npmjs.org/person
+npm http GET https://registry.npmjs.org/person
+npm http 200 https://registry.npmjs.org/person
+npm http PUT https://registry.npmjs.org/person/0.0.1/-tag/latest
+npm http 201 https://registry.npmjs.org/person/0.0.1/-tag/latest
+npm http GET https://registry.npmjs.org/person
+npm http 200 https://registry.npmjs.org/person
+npm http PUT https://registry.npmjs.org/person/-/person-0.0.1.tgz/-rev/2-5d4a09a77ce7a4fac8083c515ac3be38
+npm http 201 https://registry.npmjs.org/person/-/person-0.0.1.tgz/-rev/2-5d4a09a77ce7a4fac8083c515ac3be38
++ person@0.0.1
+dscape at air in ~/Desktop/dev/ana/l002/person  on master* node v0.6.7
+$ cd ..
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ npm install person
+person@0.0.1 ./node_modules/person
+dscape at air in ~/Desktop/dev/ana/l002  on master*
+$ node
+> require('person')
+[Function: createPerson]
+>

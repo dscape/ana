@@ -1,0 +1,219 @@
+dscape at air in ~/Desktop/dev 
+$ n
+dscape at air in ~/Desktop/dev/nodejitsu 
+$ cd training/
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ clear
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ clear
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master
+$ node
+> var fs = require('fs')
+undefined
+> fs.readFileSync
+[Function]
+> fs.readFile
+[Function]
+> fs.readFileSync('README.md')
+<Buffer >
+> fs.readFileSync('README.md', 'utf-8')
+''
+> fs.readFileSync('README.md', 'utf-8')
+'sdsdds\n'
+> a = 
+(^C again to quit)
+> a = fs.readFileSync('README.md', 'utf-8')
+'sdsdds\n'
+> console.log(a)
+sdsdds
+
+undefined
+> fs.readFile('README.md', function (data) { console.log(data) })
+undefined
+> null
+> fs.readFile('README.md', 'utf-8', function (data) { console.log(data) })
+undefined
+> null
+> fs.readFile('README.md', 'utf-8', function (err,data) { console.log(data) })
+undefined
+> sdsdds
+
+> fs.readFile('README.md', 'utf-8', function (err,data) { if(err) {console.log("WATWAT"); return; } console.log(data) })
+undefined
+> sdsdds
+
+> fs.readFile('REfdADME.md', 'utf-8', function (err,data) { if(err) {console.log("WATWAT"); return; } console.log(data) })
+undefined
+> WATWAT
+module
+(^C again to quit)
+> module
+{ id: 'repl',
+  exports: 
+   { disableColors: false,
+     writer: [Function],
+     REPLServer: [Function: REPLServer],
+     start: [Function],
+     repl: 
+      { useGlobal: true,
+        eval: [Function],
+        lines: [Object],
+        context: [Object],
+        bufferedCommand: '',
+        outputStream: [Object],
+        inputStream: [Object],
+        prompt: '> ',
+        rli: [Object],
+        commands: [Object] } },
+  parent: undefined,
+  filename: '/Users/dscape/Desktop/dev/nodejitsu/training/repl',
+  loaded: false,
+  exited: false,
+  children: [],
+  paths: 
+   [ '/Users/dscape/Desktop/dev/nodejitsu/training/repl/node_modules',
+     '/Users/dscape/Desktop/dev/nodejitsu/training/node_modules',
+     '/Users/dscape/Desktop/dev/nodejitsu/node_modules',
+     '/Users/dscape/Desktop/dev/node_modules',
+     '/Users/dscape/Desktop/node_modules',
+     '/Users/dscape/node_modules',
+     '/Users/node_modules',
+     '/node_modules' ] }
+> modules.exports
+ReferenceError: modules is not defined
+    at repl:1:2
+    at REPLServer.eval (repl.js:80:21)
+    at Interface.<anonymous> (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+    at Interface._ttyWrite (readline.js:603:14)
+    at ReadStream.<anonymous> (readline.js:82:12)
+    at ReadStream.emit (events.js:88:20)
+    at ReadStream._emitKey (tty.js:320:10)
+> module.exports
+{ disableColors: false,
+  writer: [Function],
+  REPLServer: [Function: REPLServer],
+  start: [Function],
+  repl: 
+   { useGlobal: true,
+     eval: [Function],
+     lines: 
+      [ 'var fs = require(\'fs\')',
+        'fs.readFileSync',
+        'fs.readFile',
+        'fs.readFileSync(\'README.md\')',
+        'fs.readFileSync(\'README.md\', \'utf-8\')',
+        'fs.readFileSync(\'README.md\', \'utf-8\')',
+        'a = fs.readFileSync(\'README.md\', \'utf-8\')',
+        'console.log(a)',
+        'fs.readFile(\'README.md\', function (data) { console.log(data) })',
+        'fs.readFile(\'README.md\', \'utf-8\', function (data) { console.log(data) })',
+        'fs.readFile(\'README.md\', \'utf-8\', function (err,data) { console.log(data) })',
+        'fs.readFile(\'README.md\', \'utf-8\', function (err,data) { if(err) {console.log("WATWAT"); return; } console.log(data) })',
+        'fs.readFile(\'REfdADME.md\', \'utf-8\', function (err,data) { if(err) {console.log("WATWAT"); return; } console.log(data) })',
+        'module',
+        'modules.exports',
+        'module.exports',
+        level: [] ],
+     context: 
+      { ArrayBuffer: [Function: ArrayBuffer],
+        Int8Array: [Object],
+        Uint8Array: [Object],
+        Int16Array: [Object],
+        Uint16Array: [Object],
+        Int32Array: [Object],
+        Uint32Array: [Object],
+        Float32Array: [Object],
+        Float64Array: [Object],
+        DataView: [Function: DataView],
+        global: [Circular],
+        process: [Object],
+        GLOBAL: [Circular],
+        root: [Circular],
+        Buffer: [Object],
+        setTimeout: [Function],
+        setInterval: [Function],
+        clearTimeout: [Function],
+        clearInterval: [Function],
+        console: [Getter],
+        module: [Object],
+        require: [Object],
+        fs: [Object],
+        _: [Circular],
+        a: 'sdsdds\n' },
+     bufferedCommand: '',
+     outputStream: 
+      { _handle: [Object],
+        _pendingWriteReqs: 1,
+        _flags: 0,
+        _connectQueueSize: 0,
+        destroyed: false,
+        bytesRead: 0,
+        bytesWritten: 13148,
+        allowHalfOpen: undefined,
+        readable: false,
+        writable: true,
+        _type: 'tty',
+        fd: 1,
+        _isStdio: true,
+        destroySoon: [Function],
+        destroy: [Function],
+        end: [Function] },
+     inputStream: 
+      { _handle: [Object],
+        _pendingWriteReqs: 0,
+        _flags: 0,
+        _connectQueueSize: 0,
+        destroyed: false,
+        bytesRead: 670,
+        bytesWritten: 0,
+        allowHalfOpen: undefined,
+        writable: false,
+        _events: [Object],
+        fd: 0 },
+     prompt: '> ',
+     rli: 
+      { output: [Object],
+        input: [Object],
+        completer: [Function: complete],
+        _prompt: '> ',
+        _promptLength: 2,
+        enabled: true,
+        line: '',
+        cursor: 0,
+        history: [Object],
+        historyIndex: -1,
+        _events: [Object] },
+     commands: 
+      { '.break': [Object],
+        '.clear': [Object],
+        '.exit': [Object],
+        '.help': [Object],
+        '.save': [Object],
+        '.load': [Object] } } }
+> 
+undefined
+> 
+(^C again to quit)
+> dscape at air in ~/Desktop/dev/nodejitsu/training  on master*
+$ clear
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master*
+$ ll
+total 16
+drwxr-xr-x   8 dscape  staff  272 Apr 17 14:30 .
+drwxr-xr-x  20 dscape  staff  680 Apr 17 14:27 ..
+drwxr-xr-x  13 dscape  staff  442 Apr 18 16:40 .git
+-rw-r--r--@  1 dscape  staff   33 Apr 18 15:11 .gitignore
+-rw-r--r--@  1 dscape  staff    7 Apr 18 16:18 README.md
+drwxr-xr-x   2 dscape  staff   68 Apr 17 14:28 build
+drwxr-xr-x   3 dscape  staff  102 Apr 17 14:29 publish
+drwxr-xr-x   4 dscape  staff  136 Apr 17 15:01 topics
+dscape at air in ~/Desktop/dev/nodejitsu/training  on master*
+$ 
+
+
+
+
+
