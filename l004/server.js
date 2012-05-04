@@ -4,15 +4,16 @@ var environment = require('./env')
   , io
   ;
 
-server.run = function run(cb) {
+server.run = function run() {
   environment.initialize(function initialize(app) {
-    io = socketio.listen(app.server);
-    io.sockets.on('connection', function(client) {
-      client.on('msg', function (shit) {
-        io.sockets.broadcast.emit('msg', shit);
+    environment.start(app, function () {
+      io = socketio.listen(app.server);
+      io.sockets.on('connection', function(client) {
+        client.on('msg', function (shit) {
+          io.sockets.emit('msg', shit);
+        });
       });
     });
-    environment.start(app, cb);
   });
 };
 

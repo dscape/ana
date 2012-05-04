@@ -7,9 +7,11 @@
   }
 
   socket.on('msg', function appendSomeLameAssTextSomeoneSend(blurb) {
-    $('#panel').appendChild('<p>' + blurb + '</p>');
+    $('#panel').append('<p>' + blurb + '</p>');
   });
 
-  $('#talk').click(saySomething);
+  $(function() {
+    $('body').click(function () { saySomething(); });
+  });
 
 })();
